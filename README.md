@@ -1,6 +1,6 @@
 # IF Outages ICS
 
-Auto-generated schedule of power outages for Ivano-Frankivsk region with data from [BE Svitlo](https://be-svitlo.oe.if.ua).
+Auto-generated schedule of power outages for Ivano-Frankivsk region with data from [svitlo.oe.if.ua](https://svitlo.oe.if.ua/).
 
 ## Overview
 
