@@ -86,7 +86,7 @@ async function generateICSForQueue(queue: string, scheduleData: ScheduleData[]) 
 			}
 
 			events.push({
-				title: "Планове відключення електроенергії",
+				title: "Electricity Outage",
 				start: [
 					startDate.getFullYear(),
 					startDate.getMonth() + 1,
