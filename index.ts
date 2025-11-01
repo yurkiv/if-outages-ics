@@ -62,11 +62,6 @@ function parseDateTime(dateStr: string, timeStr: string): Date {
 }
 
 async function generateICSForQueue(queue: string, scheduleData: ScheduleData[]) {
-	if (scheduleData.length === 0) {
-		console.log(`No schedule data for queue ${queue}`);
-		return;
-	}
-
 	const events = [];
 
 	for (const schedule of scheduleData) {
@@ -106,11 +101,6 @@ async function generateICSForQueue(queue: string, scheduleData: ScheduleData[]) 
 		}
 	}
 
-	if (events.length === 0) {
-		console.log(`No events for queue ${queue}`);
-		return;
-	}
-
 	const res = createEvents(events);
 	if (res.error) {
 		console.error(`Error creating ICS for queue ${queue}:`, res.error);
@@ -120,7 +110,7 @@ async function generateICSForQueue(queue: string, scheduleData: ScheduleData[]) 
 	await mkdir("./out", { recursive: true });
 	const filename = `./out/queue_${queue.replace(".", "_")}.ics`;
 	await writeFile(filename, res.value);
-	console.log(`Generated ${filename}`);
+	console.log(`Generated ${filename}${events.length === 0 ? " (no outages)" : ""}`);
 }
 
 async function main() {
