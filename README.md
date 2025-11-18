@@ -38,13 +38,13 @@ You can integrate these calendars with [Home Assistant](https://www.home-assista
 ## Installation
 
 ```bash
-bun install
+bundle install
 ```
 
 ## Usage
 
 ```bash
-bun run index.ts
+bundle exec ruby index.rb
 ```
 
 This will:

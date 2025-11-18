@@ -3,22 +3,18 @@ name: Update schedule
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/10 * * * *"
 
 jobs:
   update-schedule:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          bun-version: latest
-      - uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-      - run: bun install
-      - run: TZ=Europe/Kyiv bun index.ts
+          ruby-version: '3.3'
+          bundler-cache: true
+      - run: TZ=Europe/Kyiv bundle exec ruby index.rb
 
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v4.0.0
