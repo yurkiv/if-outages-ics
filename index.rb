@@ -58,10 +58,16 @@ def generate_ics_for_queue(queue, schedule_data)
         end_time += 86400 # Add 1 day in seconds
       end
 
+      duration_seconds = end_time - start_time
+      duration_hours = (duration_seconds / 3600).floor
+      duration_minutes = ((duration_seconds % 3600) / 60).floor
+      duration_str = "#{duration_hours}h"
+      duration_str += " #{duration_minutes}m" if duration_minutes > 0
+
       cal.event do |e|
         e.dtstart = start_time
         e.dtend = end_time
-        e.summary = "Electricity Outage"
+        e.summary = "Electricity Outage for #{duration_str}"
         e.description = "Queue: #{queue}\nOutage hours: #{event_info['shutdownHours']}"
       end
       events_count += 1
