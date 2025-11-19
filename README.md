@@ -8,7 +8,7 @@ This script fetches electrical outage schedules for all queues (1.1 - 6.2) in th
 
 ## Published Calendars
 
-Calendar files are automatically published and updated every 5 minutes:
+Calendar files are automatically published and updated every 10 minutes:
 
 📅 **Browse calendars:** https://yurkiv.github.io/if-outages-ics/
 
@@ -60,4 +60,4 @@ Generated `.ics` files can be imported into any calendar application (Google Cal
 
 - API: `https://be-svitlo.oe.if.ua/schedule-by-queue`
 - Region: Ivano-Frankivsk (Ukraine)
-- Update frequency: Every 5 minutes
+- Update frequency: Every 10 minutes
